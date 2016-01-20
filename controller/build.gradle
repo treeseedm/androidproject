@@ -1,11 +1,9 @@
-apply plugin: 'com.android.application'
-
+apply plugin: 'com.android.library'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "androidproject.com.androidproject"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
@@ -23,7 +21,13 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile project(':controller')
-    //图片处理
-    compile 'com.facebook.fresco:fresco:0.8.1'
+    //网络请求
+    compile 'com.squareup.retrofit:retrofit:1.5.1'
+    //数据解析
+    compile 'com.google.code.gson:gson:2.2'
+    //解耦
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile project(':commonlib')
+    compile files('libs/guice-3.0-no_aop.jar')
+    compile files('libs/javax.inject-1.jar')
 }
