@@ -1,9 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="androidproject.com.androidproject">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:allowBackup="true"
         android:name=".ApApplication"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -16,7 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="androidproject.com.controller.ApService"/>
+        <service android:name="androidproject.com.controller.ApService" />
+        <provider
+            android:name="androidproject.com.controller.db.DbProvider"
+            android:authorities="com.android.project"
+            android:exported="false"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

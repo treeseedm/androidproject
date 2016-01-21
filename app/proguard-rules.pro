@@ -15,6 +15,4 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keepclassmembers class * extends e.greenrobot.event.util.ThrowableFailureEvent {
-    *;
-}
+

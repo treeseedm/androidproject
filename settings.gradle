@@ -1,1 +1,1 @@
-include ':app', ':controller', ':commonlib'
+include ':app', ':controller'

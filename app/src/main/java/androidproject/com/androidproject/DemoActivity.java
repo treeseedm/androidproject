@@ -5,8 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidproject.com.commonlib.ApLog;
-import androidproject.com.controller.ServiceStartEvent;
+import androidproject.com.controller.controller.ServiceStartEvent;
 import androidproject.com.controller.demo.event.DemoRequestEvent;
 import androidproject.com.controller.demo.event.DemoResponseEvent;
 import de.greenrobot.event.EventBus;
@@ -26,7 +25,6 @@ public class DemoActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
-        ApLog.d(this, "--oncreate");
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,12 +34,11 @@ public class DemoActivity extends BaseActivity {
     }
 
     public void onEventMainThread(DemoResponseEvent event) {
-        tvName.setText(event.userName);
+        tvName.setText(event.userName+":"+event.message);
     }
 
     public void onEventMainThread(ServiceStartEvent event) {
         EventBus.getDefault().post(new DemoRequestEvent(tvName.getText().toString()));
-
     }
 
     ;

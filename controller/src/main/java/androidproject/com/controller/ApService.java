@@ -1,11 +1,12 @@
 package androidproject.com.controller;
 
+import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
 import com.google.inject.Inject;
 
-import androidproject.com.commonlib.ApLog;
+import androidproject.com.controller.controller.ServiceStartEvent;
 import androidproject.com.controller.demo.DemoController;
 import de.greenrobot.event.EventBus;
 import roboguice.service.RoboService;
@@ -20,7 +21,6 @@ public class ApService extends RoboService {
     @Override
     public void onCreate() {
         super.onCreate();
-        ApLog.d(this, "---service start" + mDemoController);
         EventBus.getDefault().post(new ServiceStartEvent());
     }
 
