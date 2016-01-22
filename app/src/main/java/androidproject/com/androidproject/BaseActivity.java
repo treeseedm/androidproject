@@ -9,7 +9,7 @@ import roboguice.activity.RoboActivity;
  * Created by mahaifeng on 16/1/19.
  */
 public class BaseActivity extends RoboActivity {
-
+    private boolean isNeedRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
