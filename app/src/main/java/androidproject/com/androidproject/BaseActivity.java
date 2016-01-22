@@ -10,6 +10,11 @@ import roboguice.activity.RoboActivity;
  */
 public class BaseActivity extends RoboActivity {
     private boolean isNeedRegister;
+
+    public void setNeedRegister(boolean isNeedRegister) {
+        this.isNeedRegister = isNeedRegister;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,13 +22,17 @@ public class BaseActivity extends RoboActivity {
 
     @Override
     protected void onStart() {
-        EventBus.getDefault().register(this);
+        if (isNeedRegister) {
+            EventBus.getDefault().register(this);
+        }
         super.onStart();
     }
 
     @Override
     protected void onStop() {
-        EventBus.getDefault().unregister(this);
+        if (isNeedRegister) {
+            EventBus.getDefault().unregister(this);
+        }
         super.onStop();
     }
 }

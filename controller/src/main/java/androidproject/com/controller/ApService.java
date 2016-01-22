@@ -1,6 +1,5 @@
 package androidproject.com.controller;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
@@ -31,7 +30,9 @@ public class ApService extends RoboService {
 
     @Override
     public void onDestroy() {
-        EventBus.getDefault().unregister(mDemoController);
+        if (mDemoController.getNeedRegister()) {
+            EventBus.getDefault().unregister(mDemoController);
+        }
         super.onDestroy();
     }
 }

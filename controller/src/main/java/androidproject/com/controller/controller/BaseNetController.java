@@ -14,14 +14,25 @@ public class BaseNetController {
     private static final String HOST = "http://api.map.baidu.com";
     protected CallService mCallService;
     protected Context mContext;
+    private boolean isNeedRegister;
+
+    public void setNeedRegister(boolean isNeedRegister) {
+        this.isNeedRegister = isNeedRegister;
+    }
+
+    public boolean getNeedRegister() {
+        return isNeedRegister;
+    }
 
     public BaseNetController(Context context) {
-        this.mContext=context;
+        this.mContext = context;
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         mCallService = retrofit.create(CallService.class);
-        EventBus.getDefault().register(this);
+        if (isNeedRegister) {
+            EventBus.getDefault().register(this);
+        }
     }
 }

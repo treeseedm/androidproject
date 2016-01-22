@@ -25,6 +25,7 @@ public class DemoController extends BaseNetController {
     @Inject
     public DemoController(Context context) {
         super(context);
+        setNeedRegister(true);
     }
 
     public void onEventBackgroundThread(final DemoRequestEvent requestEvent) {
