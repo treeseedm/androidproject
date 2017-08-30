@@ -1,8 +1,8 @@
-package androidproject.com.controller.controller;
+package androidproject.com.androidproject.net;
 
 import java.util.List;
 
-import androidproject.com.controller.demo.event.DemoResponseEvent;
+import androidproject.com.androidproject.entity.DemoResponseEvent;
 import retrofit.Call;
 import retrofit.http.GET;
 import retrofit.http.Path;

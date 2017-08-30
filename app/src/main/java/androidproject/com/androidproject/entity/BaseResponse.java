@@ -1,4 +1,4 @@
-package androidproject.com.controller.controller;
+package androidproject.com.androidproject.entity;
 
 /**
  * Created by mahaifeng on 16/1/21.

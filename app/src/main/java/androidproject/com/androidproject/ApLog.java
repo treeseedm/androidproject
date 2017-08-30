@@ -1,10 +1,11 @@
-package androidproject.com.controller.common;
+package androidproject.com.androidproject;
 
 import android.util.Log;
 
 /**
- * Created by mahaifeng on 16/1/19.
+ * Created by mahaifeng on 17/8/30.
  */
+
 public class ApLog {
     private static String TAG = "ApLog";
 
